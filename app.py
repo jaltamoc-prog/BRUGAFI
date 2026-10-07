@@ -255,6 +255,32 @@ section{padding:82px 0}
 .section-head h2{font-size:48px;margin:0}
 .section-head p{max-width:650px;color:#5e584f;line-height:1.7}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.background-product-card{
+  min-height:420px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  display:flex;
+  align-items:flex-end;
+}
+.background-product-content{
+  width:100%;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px;
+}
+.fragrance-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+.fragrance-card{
+  min-height:380px;
+}
+
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.05)}
 .media{height:285px;background:#f3eee5;display:flex;align-items:center;justify-content:center;padding:22px;text-align:center;color:#777}
@@ -287,7 +313,7 @@ footer p{color:#6b645a}
 .collection-overlay h3{color:#fff;font-size:2rem;line-height:1.1;margin:0}
 @media(max-width:1100px){.grid4,.collection-gallery{grid-template-columns:1fr 1fr}}
 @media(max-width:900px){
-  .hero-grid,.grid3,.grid2,.scent-grid,.grid4,.collection-gallery{grid-template-columns:1fr}
+  .hero-grid,.grid3,.grid2,.fragrance-grid,.scent-grid,.grid4,.collection-gallery{grid-template-columns:1fr}
   .hero-points{grid-template-columns:1fr}
   .hero-copy,.brand-panel{min-height:auto}
   .links{display:none}
@@ -333,7 +359,7 @@ footer p{color:#6b645a}
 <div class="container">
   <div class="section-head">
     <h2>Colecciones</h2>
-    <p>Explora cada colección visualmente. Al dar clic se abre una nueva ventana con todos los aromas de esa línea.</p>
+    
   </div>
   <div class="collection-gallery">
     {% for c in collections %}
@@ -350,15 +376,12 @@ footer p{color:#6b645a}
 <div class="container">
   <div class="section-head">
     <h2>Elige tu difusor</h2>
-    <p>Controla horarios e intensidad desde tu celular y crea una experiencia aromática constante, elegante y personalizada.</p>
+    
   </div>
   <div class="grid3">
   {% for d in diffusers %}
-    <article class="card">
-      <div class="media">
-        <img src="/static/{{ d.image_file }}" alt="{{ d.code }}" onerror="this.style.display='none';this.parentElement.innerHTML='Agregar imagen BRUGAFI del {{ d.code }}';">
-      </div>
-      <div class="content">
+    <article class="card background-product-card" style="background-image: linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.88)), url('/static/{{ d.image_file }}');">
+      <div class="content background-product-content">
         <span class="kicker">{{ d.code }}</span>
         <h3>{{ d.coverage }}</h3>
         <p>{{ d.description }}</p>
@@ -380,18 +403,14 @@ footer p{color:#6b645a}
 <div class="container">
   <div class="section-head">
     <h2>Fragancias BRUGAFI</h2>
-    <p>Aceite para difusor en 250 ml y fragancias para textiles en 150 ml y 350 ml. Libres de ftalatos y parabenos.</p>
+    
   </div>
-  <div class="grid2">
+  <div class="fragrance-grid">
   {% for b in bottles %}
-    <article class="card">
-      <div class="media">
-        <img src="/static/{{ b.image_file }}" alt="Fragancia BRUGAFI {{ b.size }}" onerror="this.style.display='none';this.parentElement.innerHTML='Agregar botella BRUGAFI con etiqueta cuadrada';">
-      </div>
-      <div class="content">
+    <article class="card background-product-card fragrance-card" style="background-image: linear-gradient(rgba(255,255,255,.76), rgba(255,255,255,.88)), url('/static/{{ b.image_file }}');">
+      <div class="content background-product-content">
         <span class="kicker">{{ b.size }}</span>
         <h3>{{ b.title }}</h3>
-        <p>{{ b.description }}</p>
         <p><strong>Libre de ftalatos y parabenos.</strong></p>
         <div class="price">Precio: {{ b.price }}</div>
         {% if b.available %}
