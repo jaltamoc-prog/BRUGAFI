@@ -50,7 +50,7 @@ DIFFUSERS = [
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["diffuser_a45"],
         "available": is_real_checkout(STRIPE_LINKS["diffuser_a45"]),
-        "image_file": "img/difusor-a45-brugafi.png"
+        "image_file": "img/difusores/difusor-45.png"
     },
     {
         "code": "A70",
@@ -68,7 +68,7 @@ DIFFUSERS = [
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["diffuser_a70"],
         "available": is_real_checkout(STRIPE_LINKS["diffuser_a70"]),
-        "image_file": "img/difusor-a70-brugafi.png"
+        "image_file": "img/difusores/difusor-70.png"
     },
     {
         "code": "A140",
@@ -86,7 +86,7 @@ DIFFUSERS = [
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["diffuser_a140"],
         "available": is_real_checkout(STRIPE_LINKS["diffuser_a140"]),
-        "image_file": "img/difusor-a140-brugafi.png"
+        "image_file": "img/difusores/difusor-140.png"
     }
 ]
 
@@ -256,6 +256,61 @@ section{padding:82px 0}
 .section-head p{max-width:650px;color:#5e584f;line-height:1.7}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 
+
+/* ===== DIFUSORES FLIP v2.0 ===== */
+.diffuser-grid{align-items:stretch}
+.diffuser-flip-card{
+  min-height:430px;
+  background:transparent;
+  perspective:1400px;
+  cursor:pointer;
+}
+.diffuser-flip-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:430px;
+  transition:transform .72s cubic-bezier(.2,.7,.2,1);
+  transform-style:preserve-3d;
+}
+.diffuser-flip-card:hover .diffuser-flip-inner,
+.diffuser-flip-card:focus .diffuser-flip-inner,
+.diffuser-flip-card:focus-within .diffuser-flip-inner{
+  transform:rotateY(180deg);
+}
+.diffuser-flip-face{
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  overflow:hidden;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  box-shadow:0 14px 36px rgba(0,0,0,.08);
+  border:1px solid rgba(0,0,0,.05);
+}
+.diffuser-flip-front{
+  display:flex;
+  align-items:flex-end;
+}
+.diffuser-front-content{
+  width:100%;
+  padding:26px;
+}
+.diffuser-flip-back{
+  transform:rotateY(180deg);
+  background-size:cover;
+  background-position:center;
+  background-color:#eee;
+}
+@media (hover:none){
+  .diffuser-flip-card:active .diffuser-flip-inner{
+    transform:rotateY(180deg);
+  }
+}
+
 .background-product-card{
   min-height:420px;
   background-size:cover;
@@ -378,20 +433,34 @@ footer p{color:#6b645a}
     <h2>Elige tu difusor</h2>
     
   </div>
-  <div class="grid3">
+  <div class="grid3 diffuser-grid">
   {% for d in diffusers %}
-    <article class="card background-product-card" style="background-image: linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.88)), url('/static/{{ d.image_file }}');">
-      <div class="content background-product-content">
-        <span class="kicker">{{ d.code }}</span>
-        <h3>{{ d.coverage }}</h3>
-        <p>{{ d.description }}</p>
-        <ul>{% for f in d.features %}<li>{{ f }}</li>{% endfor %}</ul>
-        <div class="price">Precio: {{ d.price }}</div>
-        {% if d.available %}
-          <a class="btn btn-dark" href="{{ d.stripe_url }}" target="_blank">Quiero esta sensación en mi espacio</a>
-        {% else %}
-          <span class="btn disabled">Agregar liga Stripe</span>
-        {% endif %}
+    <article class="diffuser-flip-card" tabindex="0">
+      <div class="diffuser-flip-inner">
+
+        <div class="diffuser-flip-face diffuser-flip-front"
+             style="background-image:
+             linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.88)),
+             url('/static/{{ d.image_file }}');">
+          <div class="content diffuser-front-content">
+            <span class="kicker">{{ d.code }}</span>
+            <h3>{{ d.coverage }}</h3>
+            <p>{{ d.description }}</p>
+            <ul>{% for f in d.features %}<li>{{ f }}</li>{% endfor %}</ul>
+            <div class="price">Precio: {{ d.price }}</div>
+            {% if d.available %}
+              <a class="btn btn-dark" href="{{ d.stripe_url }}" target="_blank">Quiero esta sensación en mi espacio</a>
+            {% else %}
+              <span class="btn disabled">Agregar liga Stripe</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="diffuser-flip-face diffuser-flip-back"
+             style="background-image:url('/static/{{ d.image_file }}');"
+             aria-label="Imagen {{ d.code }}">
+        </div>
+
       </div>
     </article>
   {% endfor %}
