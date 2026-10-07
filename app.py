@@ -152,39 +152,39 @@ COLLECTIONS = [
             {"name": "AVEL", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/avel.jpg", "stripe_url":"#"},
             {"name": "VAREN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/varen.jpg", "stripe_url":"#"},
             {"name": "ELARA", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/elara.jpg", "stripe_url":"#"},
-            {"name": "AMBREL", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/ambrel.jpg", "stripe_url":"#"},
-            {"name": "LÉVAN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/levan.jpg", "stripe_url":"#"},
-            {"name": "NOXEN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/noxen.jpg", "stripe_url":"#"},
-            {"name": "ORVAN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/orvan.jpg", "stripe_url":"#"},
-            {"name": "ALVÉ", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/alve.jpg", "stripe_url":"#"},
-            {"name": "SOREN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/soren.jpg", "stripe_url":"#"},
+            {"name": "Haven", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/ambrel.jpg", "stripe_url":"#"},
+            {"name": "calm", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/levan.jpg", "stripe_url":"#"},
+            {"name": "Napa", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/noxen.jpg", "stripe_url":"#"},
+            {"name": "Satin", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/orvan.jpg", "stripe_url":"#"},
+            {"name": "Pure", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/alve.jpg", "stripe_url":"#"},
+            {"name": "Iris", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI.", "image_file":"img/aromas/soren.jpg", "stripe_url":"#"},
         ]
     },
     {
         "slug":"hoteles","title": "Colección Hoteles","cover_image":"img/colecciones/hoteles.jpg",
         "intro": "Inspiración sensorial en grandes destinos, lobbies elegantes, spas costeros y estancias memorables.",
         "items": [
-            {"name": "AUREN", "profile": "Neutro · Floral", "notes": "Orquídea, flores blancas, sándalo, incienso", "mood": "Elegancia serena, sobria y envolvente.", "image_file":"img/aromas/auren.jpg", "stripe_url":"#"},
-            {"name": "VÉRIN", "profile": "Cítrico", "notes": "Green tea, algodón", "mood": "Limpieza luminosa y sofisticación ligera.", "image_file":"img/aromas/verin.jpg", "stripe_url":"#"},
-            {"name": "NALÉ", "profile": "Cítrico", "notes": "Lima, bambú, flor de loto, cedro, vainilla", "mood": "Frescura verde con fondo suave y refinado.", "image_file":"img/aromas/nale.jpg", "stripe_url":"#"},
-            {"name": "ORIEN", "profile": "Neutro", "notes": "Higo, almendra, ámbar, cedro, almizcle", "mood": "Calidez elegante con profundidad reconfortante.", "image_file":"img/aromas/orien.jpg", "stripe_url":"#"},
-            {"name": "ZÉVOR", "profile": "Neutro", "notes": "Bergamota, rosa de damasco, orquídea, oud, ámbar, sándalo", "mood": "Lujo intenso, exótico y distinguido.", "image_file":"img/aromas/zevor.jpg", "stripe_url":"#"},
-            {"name": "LUREN", "profile": "Cítrico · Floral", "notes": "Lemongrass, almizcle, flores frescas, citrus", "mood": "Vitalidad limpia y fresca.", "image_file":"img/aromas/luren.jpg", "stripe_url":"#"},
-            {"name": "AVIOR", "profile": "Cítrico · Amaderado", "notes": "Vetiver, naranja amarga, toronja roja", "mood": "Energía cítrica con elegancia mediterránea.", "image_file":"img/aromas/avior.jpg", "stripe_url":"#"},
-            {"name": "EIRAN", "profile": "Floral · Ambarado", "notes": "Almizcle, tonka, ámbar gris, toronja, cassis, rosa, azahar", "mood": "Sensualidad cálida y floral.", "image_file":"img/aromas/eiran.jpg", "stripe_url":"#"},
-            {"name": "SAVEN", "profile": "Verde · Cítrico", "notes": "Galbano, tomillo, limón, violeta, rosa, cedro", "mood": "Frescura botánica distinguida.", "image_file":"img/aromas/saven.jpg", "stripe_url":"#"},
-            {"name": "NERÉ", "profile": "Aromático · Fresco", "notes": "Menta, lavanda, eucalipto, toques cítricos", "mood": "Claridad fresca y relajante.", "image_file":"img/aromas/nere.jpg", "stripe_url":"#"},
-            {"name": "VALEN", "profile": "Herbal · Fresco", "notes": "Eucalipto, menta americana, lavanda, toques cítricos", "mood": "Impulso revitalizante.", "image_file":"img/aromas/valen.jpg", "stripe_url":"#"},
-            {"name": "ÉVORA", "profile": "Frutal · Floral", "notes": "Manzana, frambuesa, pomelo, cedro blanco, mezclas florales", "mood": "Carácter alegre y moderno.", "image_file":"img/aromas/evora.jpg", "stripe_url":"#"},
-            {"name": "ARDEL", "profile": "Floral · Almizclado", "notes": "Lirio, jazmín, melón verde, anís, almizcle", "mood": "Suavidad pulcra y luminosa.", "image_file":"img/aromas/ardel.jpg", "stripe_url":"#"},
+            {"name": "Royal", "profile": "Neutro · Floral", "notes": "Orquídea, flores blancas, sándalo, incienso", "mood": "Elegancia serena, sobria y envolvente.", "image_file":"img/aromas/auren.jpg", "stripe_url":"#"},
+            {"name": "Zen", "profile": "Cítrico", "notes": "Green tea, algodón", "mood": "Limpieza luminosa y sofisticación ligera.", "image_file":"img/aromas/verin.jpg", "stripe_url":"#"},
+            {"name": "Jungle", "profile": "Cítrico", "notes": "Lima, bambú, flor de loto, cedro, vainilla", "mood": "Frescura verde con fondo suave y refinado.", "image_file":"img/aromas/nale.jpg", "stripe_url":"#"},
+            {"name": "Sharp", "profile": "Neutro", "notes": "Higo, almendra, ámbar, cedro, almizcle", "mood": "Calidez elegante con profundidad reconfortante.", "image_file":"img/aromas/orien.jpg", "stripe_url":"#"},
+            {"name": "Oasis", "profile": "Neutro", "notes": "Bergamota, rosa de damasco, orquídea, oud, ámbar, sándalo", "mood": "Lujo intenso, exótico y distinguido.", "image_file":"img/aromas/zevor.jpg", "stripe_url":"#"},
+            {"name": "Bloom", "profile": "Cítrico · Floral", "notes": "Lemongrass, almizcle, flores frescas, citrus", "mood": "Vitalidad limpia y fresca.", "image_file":"img/aromas/luren.jpg", "stripe_url":"#"},
+            {"name": "Cliff", "profile": "Cítrico · Amaderado", "notes": "Vetiver, naranja amarga, toronja roja", "mood": "Energía cítrica con elegancia mediterránea.", "image_file":"img/aromas/avior.jpg", "stripe_url":"#"},
+            {"name": "Lagoon", "profile": "Floral · Ambarado", "notes": "Almizcle, tonka, ámbar gris, toronja, cassis, rosa, azahar", "mood": "Sensualidad cálida y floral.", "image_file":"img/aromas/eiran.jpg", "stripe_url":"#"},
+            {"name": "Coast", "profile": "Verde · Cítrico", "notes": "Galbano, tomillo, limón, violeta, rosa, cedro", "mood": "Frescura botánica distinguida.", "image_file":"img/aromas/saven.jpg", "stripe_url":"#"},
+            {"name": "Breeze", "profile": "Aromático · Fresco", "notes": "Menta, lavanda, eucalipto, toques cítricos", "mood": "Claridad fresca y relajante.", "image_file":"img/aromas/nere.jpg", "stripe_url":"#"},
+            {"name": "Neon", "profile": "Herbal · Fresco", "notes": "Eucalipto, menta americana, lavanda, toques cítricos", "mood": "Impulso revitalizante.", "image_file":"img/aromas/valen.jpg", "stripe_url":"#"},
+            {"name": "Vogue", "profile": "Frutal · Floral", "notes": "Manzana, frambuesa, pomelo, cedro blanco, mezclas florales", "mood": "Carácter alegre y moderno.", "image_file":"img/aromas/evora.jpg", "stripe_url":"#"},
+            {"name": "Gold", "profile": "Floral · Almizclado", "notes": "Lirio, jazmín, melón verde, anís, almizcle", "mood": "Suavidad pulcra y luminosa.", "image_file":"img/aromas/ardel.jpg", "stripe_url":"#"},
         ]
     },
     {
         "slug":"tiendas","title": "Colección Tiendas","cover_image":"img/colecciones/tiendas.jpg",
         "intro": "Inspiración sensorial en boutiques contemporáneas, espacios curados y ambientes sofisticados.",
         "items": [
-            {"name": "VEYRA", "profile": "Amaderado", "notes": "Herbal, musgo, cedro, ámbar", "mood": "Calidez con carácter y profundidad.", "image_file":"img/aromas/veyra.jpg", "stripe_url":"#"},
-            {"name": "ÉLION", "profile": "Neutro", "notes": "Té blanco, tomillo", "mood": "Limpieza sofisticada y calma contemporánea.", "image_file":"img/aromas/elion.jpg", "stripe_url":"#"}
+            {"name": "Fancy", "profile": "Amaderado", "notes": "Herbal, musgo, cedro, ámbar", "mood": "Calidez con carácter y profundidad.", "image_file":"img/aromas/veyra.jpg", "stripe_url":"#"},
+            {"name": "Linen", "profile": "Neutro", "notes": "Té blanco, tomillo", "mood": "Limpieza sofisticada y calma contemporánea.", "image_file":"img/aromas/elion.jpg", "stripe_url":"#"}
         ]
     }
 ]
