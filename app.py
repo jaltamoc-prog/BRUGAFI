@@ -93,19 +93,30 @@ DIFFUSERS = [
 BOTTLES = [
     {
         "size": "250 ml",
-        "description": "Presentación ideal para descubrir un aroma, rotarlo por temporada o mantener espacios de uso moderado.",
+        "title": "Aceite para difusor",
+        "description": "Aceite aromático BRUGAFI para uso en difusores profesionales.",
         "price": "TODO REEMPLAZAR",
-        "stripe_url": STRIPE_LINKS["bottle_250"],
-        "available": is_real_checkout(STRIPE_LINKS["bottle_250"]),
-        "image_file": "img/fragancia-250-brugafi.png"
+        "stripe_url": "#",
+        "available": False,
+        "image_file": "img/aceite-difusor-250-brugafi.png"
     },
     {
-        "size": "450 ml",
-        "description": "Opción recomendada para mayor continuidad aromática y espacios con uso más frecuente.",
+        "size": "150 ml",
+        "title": "Fragancia para textiles",
+        "description": "Fragancia BRUGAFI para textiles en presentación de 150 ml.",
         "price": "TODO REEMPLAZAR",
-        "stripe_url": STRIPE_LINKS["bottle_450"],
-        "available": is_real_checkout(STRIPE_LINKS["bottle_450"]),
-        "image_file": "img/fragancia-450-brugafi.png"
+        "stripe_url": "#",
+        "available": False,
+        "image_file": "img/fragancia-textil-150-brugafi.png"
+    },
+    {
+        "size": "350 ml",
+        "title": "Fragancia para textiles",
+        "description": "Fragancia BRUGAFI para textiles en presentación de 350 ml.",
+        "price": "TODO REEMPLAZAR",
+        "stripe_url": "#",
+        "available": False,
+        "image_file": "img/fragancia-textil-350-brugafi.png"
     }
 ]
 
@@ -178,13 +189,6 @@ COLLECTIONS = [
     }
 ]
 
-BEST_SELLERS = [
-    {"name":"ÉLION","subtitle":"Limpieza sofisticada y calma contemporánea","origin_note":"Selección destacada BRUGAFI","image_file":"img/best-sellers/elion.jpg","stripe_url":"#"},
-    {"name":"ÉVORA","subtitle":"Carácter alegre con sofisticación moderna","origin_note":"Selección destacada BRUGAFI","image_file":"img/best-sellers/evora.jpg","stripe_url":"#"},
-    {"name":"AMBREL","subtitle":"Calidez elegante, suave y envolvente","origin_note":"Selección destacada BRUGAFI","image_file":"img/best-sellers/ambrel.jpg","stripe_url":"#"},
-    {"name":"NALÉ","subtitle":"Frescura verde con fondo suave y refinado","origin_note":"Selección destacada BRUGAFI","image_file":"img/best-sellers/nale.jpg","stripe_url":"#"}
-]
-
 FAQS = [
     ("¿Qué diferencia a BRUGAFI de un aromatizante convencional?",
      "BRUGAFI utiliza difusión profesional de aceite para lograr una presencia aromática más uniforme, elegante y memorable."),
@@ -193,7 +197,7 @@ FAQS = [
     ("¿Puedo controlar el difusor desde mi celular?",
      "Sí. Los difusores BRUGAFI pueden configurarse desde una app móvil para administrar horarios de funcionamiento y ajustar la intensidad de difusión."),
     ("¿Puedo comprar solo la fragancia?",
-     "Sí. Hay presentaciones de 250 ml y 450 ml, además de paquetes anuales con difusor."),
+     "Sí. Tenemos aceite para difusor en 250 ml y fragancias para textiles en 150 ml y 350 ml, además de paquetes anuales con difusor."),
     ("¿Cómo pago?",
      "El pago se realizará mediante Stripe cuando se agreguen las ligas reales de checkout.")
 ]
@@ -228,7 +232,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0
 .logo{font-family:"Cormorant Garamond",serif;font-size:32px;letter-spacing:.12em}
 .links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
 .hero{padding:52px 0}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px}
 .hero-copy,.brand-panel{border-radius:28px;min-height:590px}
 .hero-copy{padding:54px;background:#fff;display:flex;flex-direction:column;justify-content:center;box-shadow:0 18px 45px rgba(0,0,0,.06)}
 .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#75632f;font-weight:700}
@@ -318,20 +322,29 @@ footer p{color:#6b645a}
       <div class="hero-points">
         <div class="point"><strong>Control desde tu celular</strong>Programa horarios y ajusta la intensidad desde una app móvil.</div>
         <div class="point"><strong>45, 70 y 140 m²</strong>Elige el difusor según el tamaño de tu espacio.</div>
-        <div class="point"><strong>250 ml y 450 ml</strong>Compra fragancias por frasco o en paquete anual.</div>
+        <div class="point"><strong>250 ml · 150 ml · 350 ml</strong>Aceite para difusor y fragancias para textiles.</div>
         <div class="point"><strong>Fórmula cuidada</strong>Fragancias libres de ftalatos y parabenos.</div>
       </div>
     </div>
-    <div class="brand-panel">
-      <div class="label">
-        <div class="b">BRUGAFI</div>
-        <div class="s">Home Fragrance</div>
-        <br><br>
-        <div class="s">Scent a Beautiful Life</div>
-      </div>
-    </div>
+</div>
+</div>
+
+<section id="colecciones">
+<div class="container">
+  <div class="section-head">
+    <h2>Colecciones</h2>
+    <p>Explora cada colección visualmente. Al dar clic se abre una nueva ventana con todos los aromas de esa línea.</p>
+  </div>
+  <div class="collection-gallery">
+    {% for c in collections %}
+    <a class="collection-tile" href="/coleccion/{{ c['slug'] }}" target="_blank">
+      <img src="/static/{{ c['cover_image'] }}" alt="{{ c['title'] }}" onerror="this.style.display='none';">
+      <div class="collection-overlay"><h3>{{ c['title'] }}</h3></div>
+    </a>
+    {% endfor %}
   </div>
 </div>
+</section>
 
 <section id="difusores">
 <div class="container">
@@ -367,7 +380,7 @@ footer p{color:#6b645a}
 <div class="container">
   <div class="section-head">
     <h2>Fragancias BRUGAFI</h2>
-    <p>Presentaciones de 250 ml y 450 ml. Libres de ftalatos y parabenos.</p>
+    <p>Aceite para difusor en 250 ml y fragancias para textiles en 150 ml y 350 ml. Libres de ftalatos y parabenos.</p>
   </div>
   <div class="grid2">
   {% for b in bottles %}
@@ -377,7 +390,7 @@ footer p{color:#6b645a}
       </div>
       <div class="content">
         <span class="kicker">{{ b.size }}</span>
-        <h3>Fragancia premium</h3>
+        <h3>{{ b.title }}</h3>
         <p>{{ b.description }}</p>
         <p><strong>Libre de ftalatos y parabenos.</strong></p>
         <div class="price">Precio: {{ b.price }}</div>
@@ -420,51 +433,7 @@ footer p{color:#6b645a}
 </section>
 
 
-<section id="best-selling">
-<div class="container">
-  <div class="section-head">
-    <h2>Best selling fragrance oils</h2>
-    <p>Una selección de aromas BRUGAFI que destacan por su aceptación, presencia y versatilidad.</p>
-  </div>
-  <div class="grid4">
-    {% for item in best_sellers %}
-    <article class="card best-card">
-      <div class="media">
-        <img src="/static/{{ item['image_file'] }}" alt="{{ item['name'] }}" onerror="this.style.display='none';this.parentElement.innerHTML='Agregar imagen de {{ item['name'] }}';">
-      </div>
-      <div class="content">
-        <h3>{{ item['name'] }}</h3>
-        <p>{{ item['subtitle'] }}</p>
-        <p><strong>{{ item['origin_note'] }}</strong></p>
-        {% if item['stripe_url'].startswith('https://') %}
-          <a class="btn btn-dark" href="{{ item['stripe_url'] }}" target="_blank">Quiero este aroma</a>
-        {% else %}
-          <span class="btn disabled">Agregar liga Stripe</span>
-        {% endif %}
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</div>
-</section>
 
-
-<section id="colecciones">
-<div class="container">
-  <div class="section-head">
-    <h2>Colecciones aromáticas</h2>
-    <p>Explora cada colección visualmente. Al dar clic se abre una nueva ventana con todos los aromas de esa línea.</p>
-  </div>
-  <div class="collection-gallery">
-    {% for c in collections %}
-    <a class="collection-tile" href="/coleccion/{{ c['slug'] }}" target="_blank">
-      <img src="/static/{{ c['cover_image'] }}" alt="{{ c['title'] }}" onerror="this.style.display='none';">
-      <div class="collection-overlay"><h3>{{ c['title'] }}</h3></div>
-    </a>
-    {% endfor %}
-  </div>
-</div>
-</section>
 
 
 <section>
@@ -557,7 +526,6 @@ def home():
         bottles=BOTTLES,
         packages=ANNUAL_PACKAGES,
         collections=COLLECTIONS,
-        best_sellers=BEST_SELLERS,
         faqs=FAQS
     )
 
