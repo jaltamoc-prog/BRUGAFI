@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, abort
+﻿from flask import Flask, render_template_string, abort
 from datetime import datetime
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ BRAND = {
     "tagline": "Scent a Beautiful Life",
     "subtag": "Home Fragrance",
     "domain": "brugafi.homes",
-    "email": "hola@brugafi.homes",  # TODO: reemplazar si usarás otro correo
+    "email": "hola@brugafi.homes",  # TODO: reemplazar si usarÃ¡s otro correo
     "colors": {
         "rich_gold": "#C8B273",
         "moonless_night": "#0A0A0C",
@@ -36,14 +36,14 @@ def is_real_checkout(url: str) -> bool:
 DIFFUSERS = [
     {
         "code": "A45",
-        "title": "Difusor profesional eléctrico de aromas",
-        "coverage": "Hasta 45 m²",
-        "description": "Diseñado para recámaras, estudios, consultorios, oficinas privadas y espacios íntimos.",
+        "title": "Difusor profesional elÃ©ctrico de aromas",
+        "coverage": "Hasta 45 mÂ²",
+        "description": "DiseÃ±ado para recÃ¡maras, estudios, consultorios, oficinas privadas y espacios Ã­ntimos.",
         "features": [
-            "Control desde app móvil",
-            "Programación de horarios",
+            "Control desde app mÃ³vil",
+            "ProgramaciÃ³n de horarios",
             "Ajuste de intensidad",
-            "Difusión profesional de aceite",
+            "DifusiÃ³n profesional de aceite",
             "Ideal para hogar y oficina",
             "Compatible con fragancias BRUGAFI"
         ],
@@ -54,14 +54,14 @@ DIFFUSERS = [
     },
     {
         "code": "A70",
-        "title": "Difusor profesional eléctrico de aromas",
-        "coverage": "Hasta 70 m²",
-        "description": "Pensado para áreas sociales, salas, recepciones pequeñas, oficinas y espacios de convivencia.",
+        "title": "Difusor profesional elÃ©ctrico de aromas",
+        "coverage": "Hasta 70 mÂ²",
+        "description": "Pensado para Ã¡reas sociales, salas, recepciones pequeÃ±as, oficinas y espacios de convivencia.",
         "features": [
-            "Control desde app móvil",
-            "Programación de horarios",
+            "Control desde app mÃ³vil",
+            "ProgramaciÃ³n de horarios",
             "Ajuste de intensidad",
-            "Difusión profesional de aceite",
+            "DifusiÃ³n profesional de aceite",
             "Uso residencial y profesional",
             "Compatible con fragancias BRUGAFI"
         ],
@@ -72,14 +72,14 @@ DIFFUSERS = [
     },
     {
         "code": "A140",
-        "title": "Difusor profesional eléctrico de aromas",
-        "coverage": "Hasta 140 m²",
-        "description": "Para salas grandes, showrooms, boutiques, oficinas y zonas abiertas de atención.",
+        "title": "Difusor profesional elÃ©ctrico de aromas",
+        "coverage": "Hasta 140 mÂ²",
+        "description": "Para salas grandes, showrooms, boutiques, oficinas y zonas abiertas de atenciÃ³n.",
         "features": [
-            "Control desde app móvil",
-            "Programación de horarios",
+            "Control desde app mÃ³vil",
+            "ProgramaciÃ³n de horarios",
             "Ajuste de intensidad",
-            "Difusión profesional de aceite",
+            "DifusiÃ³n profesional de aceite",
             "Mayor cobertura",
             "Compatible con fragancias BRUGAFI"
         ],
@@ -93,7 +93,7 @@ DIFFUSERS = [
 BOTTLES = [
     {
         "size": "250 ml",
-        "description": "Presentación ideal para descubrir un aroma, rotarlo por temporada o mantener espacios de uso moderado.",
+        "description": "PresentaciÃ³n ideal para descubrir un aroma, rotarlo por temporada o mantener espacios de uso moderado.",
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["bottle_250"],
         "available": is_real_checkout(STRIPE_LINKS["bottle_250"]),
@@ -101,7 +101,7 @@ BOTTLES = [
     },
     {
         "size": "450 ml",
-        "description": "Opción recomendada para mayor continuidad aromática y espacios con uso más frecuente.",
+        "description": "OpciÃ³n recomendada para mayor continuidad aromÃ¡tica y espacios con uso mÃ¡s frecuente.",
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["bottle_450"],
         "available": is_real_checkout(STRIPE_LINKS["bottle_450"]),
@@ -112,21 +112,21 @@ BOTTLES = [
 ANNUAL_PACKAGES = [
     {
         "name": "Experiencia Anual A45",
-        "coverage": "Hasta 45 m²",
+        "coverage": "Hasta 45 mÂ²",
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["annual_a45"],
         "available": is_real_checkout(STRIPE_LINKS["annual_a45"])
     },
     {
         "name": "Experiencia Anual A70",
-        "coverage": "Hasta 70 m²",
+        "coverage": "Hasta 70 mÂ²",
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["annual_a70"],
         "available": is_real_checkout(STRIPE_LINKS["annual_a70"])
     },
     {
         "name": "Experiencia Anual A140",
-        "coverage": "Hasta 140 m²",
+        "coverage": "Hasta 140 mÂ²",
         "price": "TODO REEMPLAZAR",
         "stripe_url": STRIPE_LINKS["annual_a140"],
         "available": is_real_checkout(STRIPE_LINKS["annual_a140"])
@@ -135,60 +135,60 @@ ANNUAL_PACKAGES = [
 
 COLLECTIONS = [
     {
-        "title": "Colección Exclusiva",
-        "intro": "Una selección BRUGAFI de carácter elegante, contemporáneo y personal.",
+        "title": "ColecciÃ³n Exclusiva",
+        "intro": "Una selecciÃ³n BRUGAFI de carÃ¡cter elegante, contemporÃ¡neo y personal.",
         "items": [
-            {"name": "AVEL", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "VAREN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "ELARA", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "AMBREL", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "LÉVAN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "NOXEN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "ORVAN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "ALVÉ", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
-            {"name": "SOREN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "Colección exclusiva BRUGAFI."},
+            {"name": "AVEL", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "VAREN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "ELARA", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "AMBREL", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "LÃ‰VAN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "NOXEN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "ORVAN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "ALVÃ‰", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
+            {"name": "SOREN", "profile": "Por confirmar", "notes": "Completar ficha olfativa.", "mood": "ColecciÃ³n exclusiva BRUGAFI."},
         ]
     },
     {
-        "title": "Colección Hoteles",
-        "intro": "Inspiración sensorial en grandes destinos, lobbies elegantes, spas costeros y estancias memorables.",
+        "title": "ColecciÃ³n Hoteles",
+        "intro": "InspiraciÃ³n sensorial en grandes destinos, lobbies elegantes, spas costeros y estancias memorables.",
         "items": [
-            {"name": "AUREN", "profile": "Neutro · Floral", "notes": "Orquídea, flores blancas, sándalo, incienso", "mood": "Elegancia serena, sobria y envolvente."},
-            {"name": "VÉRIN", "profile": "Cítrico", "notes": "Green tea, algodón", "mood": "Limpieza luminosa y sofisticación ligera."},
-            {"name": "NALÉ", "profile": "Cítrico", "notes": "Lima, bambú, flor de loto, cedro, vainilla", "mood": "Frescura verde con fondo suave y refinado."},
-            {"name": "ORIEN", "profile": "Neutro", "notes": "Higo, almendra, ámbar, cedro, almizcle", "mood": "Calidez elegante con profundidad reconfortante."},
-            {"name": "ZÉVOR", "profile": "Neutro", "notes": "Bergamota, rosa de damasco, orquídea, oud, ámbar, sándalo", "mood": "Lujo intenso, exótico y distinguido."},
-            {"name": "LUREN", "profile": "Cítrico · Floral", "notes": "Lemongrass, almizcle, flores frescas, citrus", "mood": "Vitalidad limpia y fresca."},
-            {"name": "AVIOR", "profile": "Cítrico · Amaderado", "notes": "Vetiver, naranja amarga, toronja roja", "mood": "Energía cítrica con elegancia mediterránea."},
-            {"name": "EIRAN", "profile": "Floral · Ambarado", "notes": "Almizcle, tonka, ámbar gris, toronja, cassis, rosa, azahar", "mood": "Sensualidad cálida y floral."},
-            {"name": "SAVEN", "profile": "Verde · Cítrico", "notes": "Galbano, tomillo, limón, violeta, rosa, cedro", "mood": "Frescura botánica distinguida."},
-            {"name": "NERÉ", "profile": "Aromático · Fresco", "notes": "Menta, lavanda, eucalipto, toques cítricos", "mood": "Claridad fresca y relajante."},
-            {"name": "VALEN", "profile": "Herbal · Fresco", "notes": "Eucalipto, menta americana, lavanda, toques cítricos", "mood": "Impulso revitalizante."},
-            {"name": "ÉVORA", "profile": "Frutal · Floral", "notes": "Manzana, frambuesa, pomelo, cedro blanco, mezclas florales", "mood": "Carácter alegre y moderno."},
-            {"name": "ARDEL", "profile": "Floral · Almizclado", "notes": "Lirio, jazmín, melón verde, anís, almizcle", "mood": "Suavidad pulcra y luminosa."},
+            {"name": "AUREN", "profile": "Neutro Â· Floral", "notes": "OrquÃ­dea, flores blancas, sÃ¡ndalo, incienso", "mood": "Elegancia serena, sobria y envolvente."},
+            {"name": "VÃ‰RIN", "profile": "CÃ­trico", "notes": "Green tea, algodÃ³n", "mood": "Limpieza luminosa y sofisticaciÃ³n ligera."},
+            {"name": "NALÃ‰", "profile": "CÃ­trico", "notes": "Lima, bambÃº, flor de loto, cedro, vainilla", "mood": "Frescura verde con fondo suave y refinado."},
+            {"name": "ORIEN", "profile": "Neutro", "notes": "Higo, almendra, Ã¡mbar, cedro, almizcle", "mood": "Calidez elegante con profundidad reconfortante."},
+            {"name": "ZÃ‰VOR", "profile": "Neutro", "notes": "Bergamota, rosa de damasco, orquÃ­dea, oud, Ã¡mbar, sÃ¡ndalo", "mood": "Lujo intenso, exÃ³tico y distinguido."},
+            {"name": "LUREN", "profile": "CÃ­trico Â· Floral", "notes": "Lemongrass, almizcle, flores frescas, citrus", "mood": "Vitalidad limpia y fresca."},
+            {"name": "AVIOR", "profile": "CÃ­trico Â· Amaderado", "notes": "Vetiver, naranja amarga, toronja roja", "mood": "EnergÃ­a cÃ­trica con elegancia mediterrÃ¡nea."},
+            {"name": "EIRAN", "profile": "Floral Â· Ambarado", "notes": "Almizcle, tonka, Ã¡mbar gris, toronja, cassis, rosa, azahar", "mood": "Sensualidad cÃ¡lida y floral."},
+            {"name": "SAVEN", "profile": "Verde Â· CÃ­trico", "notes": "Galbano, tomillo, limÃ³n, violeta, rosa, cedro", "mood": "Frescura botÃ¡nica distinguida."},
+            {"name": "NERÃ‰", "profile": "AromÃ¡tico Â· Fresco", "notes": "Menta, lavanda, eucalipto, toques cÃ­tricos", "mood": "Claridad fresca y relajante."},
+            {"name": "VALEN", "profile": "Herbal Â· Fresco", "notes": "Eucalipto, menta americana, lavanda, toques cÃ­tricos", "mood": "Impulso revitalizante."},
+            {"name": "Ã‰VORA", "profile": "Frutal Â· Floral", "notes": "Manzana, frambuesa, pomelo, cedro blanco, mezclas florales", "mood": "CarÃ¡cter alegre y moderno."},
+            {"name": "ARDEL", "profile": "Floral Â· Almizclado", "notes": "Lirio, jazmÃ­n, melÃ³n verde, anÃ­s, almizcle", "mood": "Suavidad pulcra y luminosa."},
         ]
     },
     {
-        "title": "Colección Tiendas",
-        "intro": "Inspiración sensorial en boutiques contemporáneas, espacios curados y ambientes sofisticados.",
+        "title": "ColecciÃ³n Tiendas",
+        "intro": "InspiraciÃ³n sensorial en boutiques contemporÃ¡neas, espacios curados y ambientes sofisticados.",
         "items": [
-            {"name": "VEYRA", "profile": "Amaderado", "notes": "Herbal, musgo, cedro, ámbar", "mood": "Calidez con carácter y profundidad."},
-            {"name": "ÉLION", "profile": "Neutro", "notes": "Té blanco, tomillo", "mood": "Limpieza sofisticada y calma contemporánea."}
+            {"name": "VEYRA", "profile": "Amaderado", "notes": "Herbal, musgo, cedro, Ã¡mbar", "mood": "Calidez con carÃ¡cter y profundidad."},
+            {"name": "Ã‰LION", "profile": "Neutro", "notes": "TÃ© blanco, tomillo", "mood": "Limpieza sofisticada y calma contemporÃ¡nea."}
         ]
     }
 ]
 
 FAQS = [
-    ("¿Qué diferencia a BRUGAFI de un aromatizante convencional?",
-     "BRUGAFI utiliza difusión profesional de aceite para lograr una presencia aromática más uniforme, elegante y memorable."),
-    ("¿Las fragancias contienen ftalatos o parabenos?",
+    ("Â¿QuÃ© diferencia a BRUGAFI de un aromatizante convencional?",
+     "BRUGAFI utiliza difusiÃ³n profesional de aceite para lograr una presencia aromÃ¡tica mÃ¡s uniforme, elegante y memorable."),
+    ("Â¿Las fragancias contienen ftalatos o parabenos?",
      "No. Las fragancias BRUGAFI se comunican como libres de ftalatos y parabenos."),
-    ("¿Puedo controlar el difusor desde mi celular?",
-     "Sí. Los difusores BRUGAFI pueden configurarse desde una app móvil para administrar horarios de funcionamiento y ajustar la intensidad de difusión."),
-    ("¿Puedo comprar solo la fragancia?",
-     "Sí. Hay presentaciones de 250 ml y 450 ml, además de paquetes anuales con difusor."),
-    ("¿Cómo pago?",
-     "El pago se realizará mediante Stripe cuando se agreguen las ligas reales de checkout.")
+    ("Â¿Puedo controlar el difusor desde mi celular?",
+     "SÃ­. Los difusores BRUGAFI pueden configurarse desde una app mÃ³vil para administrar horarios de funcionamiento y ajustar la intensidad de difusiÃ³n."),
+    ("Â¿Puedo comprar solo la fragancia?",
+     "SÃ­. Hay presentaciones de 250 ml y 450 ml, ademÃ¡s de paquetes anuales con difusor."),
+    ("Â¿CÃ³mo pago?",
+     "El pago se realizarÃ¡ mediante Stripe cuando se agreguen las ligas reales de checkout.")
 ]
 
 HOME_TEMPLATE = r"""
@@ -291,18 +291,18 @@ footer p{color:#6b645a}
 <div class="hero">
   <div class="container hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">Difusión profesional para hogar y oficina</div>
+      <div class="eyebrow">DifusiÃ³n profesional para hogar y oficina</div>
       <h1>Haz que tu espacio se sienta extraordinario.</h1>
-      <p class="lead">Difusores profesionales de aceite y fragancias premium con una inspiración sensorial de hospitalidad, boutiques y perfumería de lujo.</p>
+      <p class="lead">Difusores profesionales de aceite y fragancias premium con una inspiraciÃ³n sensorial de hospitalidad, boutiques y perfumerÃ­a de lujo.</p>
       <div class="actions">
         <a class="btn btn-dark" href="#difusores">Descubrir la experiencia</a>
         <a class="btn btn-outline" href="#colecciones">Explorar aromas</a>
       </div>
       <div class="hero-points">
-        <div class="point"><strong>Control desde tu celular</strong>Programa horarios y ajusta la intensidad desde una app móvil.</div>
-        <div class="point"><strong>45, 70 y 140 m²</strong>Elige el difusor según el tamaño de tu espacio.</div>
+        <div class="point"><strong>Control desde tu celular</strong>Programa horarios y ajusta la intensidad desde una app mÃ³vil.</div>
+        <div class="point"><strong>45, 70 y 140 mÂ²</strong>Elige el difusor segÃºn el tamaÃ±o de tu espacio.</div>
         <div class="point"><strong>250 ml y 450 ml</strong>Compra fragancias por frasco o en paquete anual.</div>
-        <div class="point"><strong>Fórmula cuidada</strong>Fragancias libres de ftalatos y parabenos.</div>
+        <div class="point"><strong>FÃ³rmula cuidada</strong>Fragancias libres de ftalatos y parabenos.</div>
       </div>
     </div>
     <div class="brand-panel">
@@ -320,7 +320,7 @@ footer p{color:#6b645a}
 <div class="container">
   <div class="section-head">
     <h2>Elige tu difusor</h2>
-    <p>Controla horarios e intensidad desde tu celular y crea una experiencia aromática constante, elegante y personalizada.</p>
+    <p>Controla horarios e intensidad desde tu celular y crea una experiencia aromÃ¡tica constante, elegante y personalizada.</p>
   </div>
   <div class="grid3">
   {% for d in diffusers %}
@@ -335,7 +335,7 @@ footer p{color:#6b645a}
         <ul>{% for f in d.features %}<li>{{ f }}</li>{% endfor %}</ul>
         <div class="price">Precio: {{ d.price }}</div>
         {% if d.available %}
-          <a class="btn btn-dark" href="{{ d.stripe_url }}" target="_blank">Quiero esta sensación en mi espacio</a>
+          <a class="btn btn-dark" href="{{ d.stripe_url }}" target="_blank">Quiero esta sensaciÃ³n en mi espacio</a>
         {% else %}
           <span class="btn disabled">Agregar liga Stripe</span>
         {% endif %}
@@ -365,7 +365,7 @@ footer p{color:#6b645a}
         <p><strong>Libre de ftalatos y parabenos.</strong></p>
         <div class="price">Precio: {{ b.price }}</div>
         {% if b.available %}
-          <a class="btn btn-dark" href="{{ b.stripe_url }}" target="_blank">Quiero vivir esta sensación</a>
+          <a class="btn btn-dark" href="{{ b.stripe_url }}" target="_blank">Quiero vivir esta sensaciÃ³n</a>
         {% else %}
           <span class="btn disabled">Agregar liga Stripe</span>
         {% endif %}
@@ -380,7 +380,7 @@ footer p{color:#6b645a}
 <div class="container">
   <div class="section-head">
     <h2>Experiencia anual</h2>
-    <p>Difusor + abastecimiento de fragancia para mantener tu espacio acompañado por BRUGAFI durante todo el año.</p>
+    <p>Difusor + abastecimiento de fragancia para mantener tu espacio acompaÃ±ado por BRUGAFI durante todo el aÃ±o.</p>
   </div>
   <div class="grid3">
   {% for p in packages %}
@@ -388,10 +388,10 @@ footer p{color:#6b645a}
       <div class="content">
         <span class="kicker">{{ p.coverage }}</span>
         <h3>{{ p.name }}</h3>
-        <p>Paquete anual con difusor y fragancia. La cantidad exacta de aceite se definirá antes de publicar el precio final.</p>
+        <p>Paquete anual con difusor y fragancia. La cantidad exacta de aceite se definirÃ¡ antes de publicar el precio final.</p>
         <div class="price">Precio: {{ p.price }}</div>
         {% if p.available %}
-          <a class="btn btn-dark" href="{{ p.stripe_url }}" target="_blank">Quiero que mi espacio se sienta así todo el año</a>
+          <a class="btn btn-dark" href="{{ p.stripe_url }}" target="_blank">Quiero que mi espacio se sienta asÃ­ todo el aÃ±o</a>
         {% else %}
           <span class="btn disabled">Agregar liga Stripe</span>
         {% endif %}
@@ -405,8 +405,8 @@ footer p{color:#6b645a}
 <section id="colecciones">
 <div class="container">
   <div class="section-head">
-    <h2>Colecciones aromáticas</h2>
-    <p>La inspiración se comunica por sensaciones, perfiles y notas olfativas, sin depender de mencionar textualmente hoteles o tiendas.</p>
+    <h2>Colecciones aromÃ¡ticas</h2>
+    <p>La inspiraciÃ³n se comunica por sensaciones, perfiles y notas olfativas, sin depender de mencionar textualmente hoteles o tiendas.</p>
   </div>
   {% for c in collections %}
   <div class="collection">
@@ -416,7 +416,7 @@ footer p{color:#6b645a}
     {% for s in c.items %}
       <div class="scent">
         <h4>{{ s.name }}</h4>
-        <p><strong>Perfil:</strong> {{ s.profile }}<br><strong>Notas:</strong> {{ s.notes }}<br><strong>Sensación:</strong> {{ s.mood }}</p>
+        <p><strong>Perfil:</strong> {{ s.profile }}<br><strong>Notas:</strong> {{ s.notes }}<br><strong>SensaciÃ³n:</strong> {{ s.mood }}</p>
       </div>
     {% endfor %}
     </div>
@@ -428,7 +428,7 @@ footer p{color:#6b645a}
 <section>
 <div class="container">
   <div class="promise">
-    <h2>Una experiencia cuidada también en su formulación</h2>
+    <h2>Una experiencia cuidada tambiÃ©n en su formulaciÃ³n</h2>
     <p>Las fragancias BRUGAFI son libres de ftalatos y parabenos.</p>
   </div>
 </div>
@@ -446,8 +446,8 @@ footer p{color:#6b645a}
 <footer>
 <div class="container">
   <div class="logo">BRUGAFI</div>
-  <p>Scent a Beautiful Life · {{ brand.domain }}</p>
-  <p>© {{ year }} BRUGAFI. Todos los derechos reservados.</p>
+  <p>Scent a Beautiful Life Â· {{ brand.domain }}</p>
+  <p>Â© {{ year }} BRUGAFI. Todos los derechos reservados.</p>
 </div>
 </footer>
 </body>
@@ -476,3 +476,4 @@ def health():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
