@@ -404,6 +404,41 @@
       }
     }
 
+  
+    /* v1.11 — vigencia dentro del cuadro superior */
+    .hero-tag{
+      display:flex!important;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:.5rem;
+      width:min(100%, 860px);
+      padding:1.15rem 1.45rem!important;
+    }
+    .hero-tag-title{
+      display:block;
+      font-size:inherit;
+      line-height:1.15;
+    }
+    .hero-tag-countdown{
+      display:block;
+      font-size:.52em;
+      line-height:1.35;
+      letter-spacing:.08em;
+      color:var(--marfil);
+      text-transform:none;
+      opacity:.95;
+    }
+    @media(max-width:759px){
+      .hero-tag{
+        width:100%;
+        padding:1rem 1rem!important;
+        gap:.45rem;
+      }
+      .hero-tag-countdown{
+        font-size:.62em;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -421,12 +456,14 @@
     <div class="hero-overlay"></div>
     <canvas class="hero-canvas" id="goldCanvas" aria-hidden="true"></canvas>
     <div class="wrap hero-content">
-      <span class="eyebrow hero-tag">Cotización para NOMAD LIVING</span>
+      <div class="eyebrow hero-tag">
+        <span class="hero-tag-title">Cotización para NOMAD LIVING</span>
+        <span class="hero-tag-countdown">Oferta vigente hasta el 15 de octubre de 2026 · <span id="countdown">Calculando…</span></span>
+      </div>
       <h1>El aroma que te distingue</h1>
       <p class="hero-sub">Nos especializamos en difusores y aromas profesionales para negocios y hogares. Nuestros equipos son fáciles de usar y no requieren técnicos ni instalaciones adicionales. Además, pueden controlarse desde la app con tu celular.</p>
       <p class="hero-sub" style="margin-top:.7rem">Una experiencia BRUGAFI pensada para el estilo de vida de NOMAD LIVING.</p>
       <a class="btn btn-solid" href="#experiencia">Descubrir mi experiencia</a>
-      <p class="countdown">Oferta vigente hasta el 15 de octubre de 2026 · <span id="countdown">Calculando…</span></p>
     </div>
   </header>
 
