@@ -359,6 +359,51 @@
       .order-row select,.order-row input{padding:.78rem .55rem}
     }
 
+  
+    /* v1.9 — renglones adicionales de aromas */
+    #extraAromaRows{
+      display:grid;
+      gap:.7rem;
+    }
+    .extra-order-row{
+      display:grid;
+      grid-template-columns:1.55fr 1fr .8fr auto;
+      gap:.65rem;
+      align-items:center;
+    }
+    .extra-order-row select,
+    .extra-order-row input{
+      width:100%;
+      min-width:0;
+      margin:0;
+    }
+    .extra-order-row input{text-align:center}
+    .remove-aroma{
+      min-width:44px;
+      min-height:44px;
+      padding:.55rem .7rem;
+      border:1px solid rgba(200,178,115,.42);
+      background:transparent;
+      color:var(--texto-claro);
+      cursor:pointer;
+      font-size:1rem;
+    }
+    .add-aroma-btn{
+      justify-self:start;
+      margin-top:.3rem;
+    }
+    @media(max-width:700px){
+      .extra-order-row{
+        grid-template-columns:1fr .8fr .65fr auto;
+        gap:.4rem;
+      }
+      .extra-order-row select,
+      .extra-order-row input{
+        padding:.72rem .5rem;
+        font-size:.82rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -541,6 +586,10 @@
               </select>
               <input id="qtyNapa" name="qtyNapa" type="number" min="0" step="1" value="0" inputmode="numeric">
             </div>
+
+            <div id="extraAromaRows"></div>
+
+            <button class="btn add-aroma-btn" type="button" id="addAromaRow">+ Añadir otro aroma</button>
           </div>
 
           <button class="btn btn-solid" type="submit">Reservar mi Experiencia</button>
@@ -680,6 +729,41 @@
     // =============================
     // FORMULARIO A WHATSAPP
     // =============================
+    const aromaCatalog = [{'name': 'Haven', 'inspiration': 'Clásicos aromas de suavizantes americanos'}, {'name': 'Pure', 'inspiration': 'Aroma limpio de jabón en barra'}, {'name': 'Iris', 'inspiration': 'Perfil neutro'}, {'name': 'Calm', 'inspiration': 'Perfil herbal - dulce'}, {'name': 'Napa', 'inspiration': 'Perfil neutro'}, {'name': 'Satin', 'inspiration': 'Perfil neutro'}, {'name': 'Royal', 'inspiration': 'Ritz Carlton'}, {'name': 'Jungle', 'inspiration': 'Xcaret México'}, {'name': 'Sharp', 'inspiration': 'Four Seasons'}, {'name': 'Bloom', 'inspiration': 'Rosewood México'}, {'name': 'Cliff', 'inspiration': 'Cap Rocat, Mallorca'}, {'name': 'Lagoon', 'inspiration': 'The Westin Maui Resort & Spa'}, {'name': 'Breeze', 'inspiration': 'Live Aqua Beach Resort Cancún'}, {'name': 'Vogue', 'inspiration': 'Marriott Hotels'}, {'name': 'Gold', 'inspiration': 'Wynn Las Vegas'}, {'name': 'Fancy', 'inspiration': 'Palacio de Hierro'}, {'name': 'Dusk', 'inspiration': 'Abercrombie'}, {'name': 'Linen', 'inspiration': 'Zara Home'}, {'name': 'Aero', 'inspiration': 'InnovaSport'}];
+
+    const extraAromaRows = document.getElementById("extraAromaRows");
+    const addAromaRowBtn = document.getElementById("addAromaRow");
+    let extraRowCounter = 0;
+
+    function aromaOptionsHTML(){
+      return aromaCatalog.map(item =>
+        `<option value="${item.name}">${item.name} — ${item.inspiration}</option>`
+      ).join("");
+    }
+
+    function addExtraAromaRow(){
+      extraRowCounter += 1;
+      const row = document.createElement("div");
+      row.className = "extra-order-row";
+      row.dataset.extraRow = String(extraRowCounter);
+      row.innerHTML = `
+        <select class="extra-aroma" aria-label="Aroma adicional">
+          ${aromaOptionsHTML()}
+        </select>
+        <select class="extra-size" aria-label="Tamaño">
+          <option value="45">45 m²</option>
+          <option value="70">70 m²</option>
+          <option value="140">140 m²</option>
+        </select>
+        <input class="extra-qty" type="number" min="0" step="1" value="1" inputmode="numeric" aria-label="Cantidad">
+        <button class="remove-aroma" type="button" aria-label="Quitar aroma">×</button>
+      `;
+      row.querySelector(".remove-aroma").addEventListener("click", () => row.remove());
+      extraAromaRows.appendChild(row);
+    }
+
+    addAromaRowBtn.addEventListener("click", addExtraAromaRow);
+
     document.getElementById("reserveForm").addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -708,9 +792,20 @@
           size: Number(document.getElementById("sizeNapa").value),
           qty: Number(document.getElementById("qtyNapa").value || 0)
         }
-      ].filter(item => item.qty > 0);
+      ];
 
-      if (!selections.length) {
+      document.querySelectorAll(".extra-order-row").forEach(row => {
+        const aroma = row.querySelector(".extra-aroma").value;
+        const size = Number(row.querySelector(".extra-size").value);
+        const qty = Number(row.querySelector(".extra-qty").value || 0);
+        if(qty > 0){
+          selections.push({ aroma, size, qty });
+        }
+      });
+
+      const validSelections = selections.filter(item => item.qty > 0);
+
+      if (!validSelections.length) {
         alert("Indica al menos una pieza.");
         return;
       }
@@ -721,7 +816,7 @@
       });
 
       let total = 0;
-      const rows = selections.map(item => {
+      const rows = validSelections.map(item => {
         const importe = prices[item.size] * item.qty;
         total += importe;
         return `${item.aroma} | ${item.size} m² | ${item.qty} | $${moneyWA(importe)}`;
