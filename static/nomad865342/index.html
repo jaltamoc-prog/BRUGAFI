@@ -319,6 +319,46 @@
       .scent-photo{height:170px!important;}
     }
 
+  
+    /* v1.6 — selección por aroma, tamaño y cantidad */
+    .order-table{
+      display:grid;
+      gap:.55rem;
+      margin:.25rem 0 .5rem;
+    }
+    .order-head,.order-row{
+      display:grid;
+      grid-template-columns:1.15fr 1fr .8fr;
+      gap:.6rem;
+      align-items:center;
+    }
+    .order-head{
+      color:var(--arena);
+      font-size:.68rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:0 .15rem;
+    }
+    .order-row strong{
+      font-family:var(--serif);
+      font-size:1.2rem;
+      font-weight:500;
+    }
+    .order-row select,.order-row input{
+      min-width:0;
+      width:100%;
+      margin:0;
+    }
+    .order-row input{text-align:center;}
+    @media(max-width:520px){
+      .order-head,.order-row{
+        grid-template-columns:1fr .9fr .7fr;
+        gap:.4rem;
+      }
+      .order-row strong{font-size:1.05rem}
+      .order-row select,.order-row input{padding:.78rem .55rem}
+    }
+
   </style>
 </head>
 <body>
@@ -464,35 +504,38 @@
             <label for="unit">Torre / unidad o espacio</label>
             <input id="unit" name="unit" required>
           </div>
-          <div class="field">
-            <label for="scent">Aroma de interés</label>
-            <select id="scent" name="scent">
-              <option>Fancy</option>
-              <option>Lagoon</option>
-              <option>Napa</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="sqm">m²</label>
-            <select id="sqm" name="sqm">
-              <option value="45">45 m²</option>
-              <option value="70">70 m²</option>
-              <option value="140">140 m²</option>
-            </select>
-          </div>
+          <div class="order-table" aria-label="Selección por aroma">
+            <div class="order-head">
+              <span>Aroma</span><span>Tamaño</span><span>Cantidad</span>
+            </div>
 
-
-          <div class="qty-grid" aria-label="Cantidad de piezas por aroma">
-            <div class="field qty-field">
-              <label for="qtyFancy">Piezas Fancy</label>
+            <div class="order-row">
+              <strong>Fancy</strong>
+              <select id="sizeFancy" name="sizeFancy">
+                <option value="45">45 m²</option>
+                <option value="70">70 m²</option>
+                <option value="140">140 m²</option>
+              </select>
               <input id="qtyFancy" name="qtyFancy" type="number" min="0" step="1" value="0" inputmode="numeric">
             </div>
-            <div class="field qty-field">
-              <label for="qtyLagoon">Piezas Lagoon</label>
+
+            <div class="order-row">
+              <strong>Lagoon</strong>
+              <select id="sizeLagoon" name="sizeLagoon">
+                <option value="45">45 m²</option>
+                <option value="70">70 m²</option>
+                <option value="140">140 m²</option>
+              </select>
               <input id="qtyLagoon" name="qtyLagoon" type="number" min="0" step="1" value="0" inputmode="numeric">
             </div>
-            <div class="field qty-field">
-              <label for="qtyNapa">Piezas Napa</label>
+
+            <div class="order-row">
+              <strong>Napa</strong>
+              <select id="sizeNapa" name="sizeNapa">
+                <option value="45">45 m²</option>
+                <option value="70">70 m²</option>
+                <option value="140">140 m²</option>
+              </select>
               <input id="qtyNapa" name="qtyNapa" type="number" min="0" step="1" value="0" inputmode="numeric">
             </div>
           </div>
@@ -586,7 +629,7 @@
     const dailyPrice = document.getElementById("dailyPrice");
     const includedText = document.getElementById("includedText");
     const sizeHelper = document.getElementById("sizeHelper");
-    const sqmSelect = document.getElementById("sqm");
+
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const money = n => n.toLocaleString("es-MX",{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -617,7 +660,6 @@
       packageSize.textContent = `${size} m²`;
       sizeHelper.textContent = p.helper;
       includedText.textContent = `1 difusor + ${p.liters} L de fragancia`;
-      sqmSelect.value = String(size);
 
       animateNumber(monthlyPrice, oldMonthly, monthly);
       animateNumber(totalPrice, oldTotal, p.total);
@@ -625,16 +667,13 @@
     }
 
     sizeBtns.forEach(btn => btn.addEventListener("click", () => selectPackage(btn.dataset.size)));
-    sqmSelect.addEventListener("change", () => selectPackage(sqmSelect.value));
 
     // =============================
-    // AROMA PRESELECCIONADO
+    // ATAJOS DESDE AROMAS
     // =============================
-    const scentSelect = document.getElementById("scent");
     document.querySelectorAll(".choose-scent").forEach(btn => {
       btn.addEventListener("click", () => {
-        scentSelect.value = btn.dataset.scent;
-        document.getElementById("experiencia").scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
+        document.getElementById("reserva").scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
       });
     });
 
@@ -643,29 +682,62 @@
     // =============================
     document.getElementById("reserveForm").addEventListener("submit", (e) => {
       e.preventDefault();
+
       const name = document.getElementById("name").value.trim();
       const unit = document.getElementById("unit").value.trim();
-      const scent = scentSelect.value;
-      const sqm = sqmSelect.value;
-      const qtyFancy = document.getElementById("qtyFancy").value || "0";
-      const qtyLagoon = document.getElementById("qtyLagoon").value || "0";
-      const qtyNapa = document.getElementById("qtyNapa").value || "0";
 
-      if(WHATSAPP_NUMBER.includes("POR CONFIRMAR")){
-        alert("Falta configurar el número de WhatsApp en index.html.");
+      const prices = {
+        45: 5590,
+        70: 9513,
+        140: 13971
+      };
+
+      const selections = [
+        {
+          aroma: "Fancy",
+          size: Number(document.getElementById("sizeFancy").value),
+          qty: Number(document.getElementById("qtyFancy").value || 0)
+        },
+        {
+          aroma: "Lagoon",
+          size: Number(document.getElementById("sizeLagoon").value),
+          qty: Number(document.getElementById("qtyLagoon").value || 0)
+        },
+        {
+          aroma: "Napa",
+          size: Number(document.getElementById("sizeNapa").value),
+          qty: Number(document.getElementById("qtyNapa").value || 0)
+        }
+      ].filter(item => item.qty > 0);
+
+      if(!selections.length){
+        alert("Indica al menos una pieza.");
         return;
       }
+
+      const moneyWA = n => n.toLocaleString("es-MX", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+
+      let total = 0;
+      const rows = selections.map(item => {
+        const importe = prices[item.size] * item.qty;
+        total += importe;
+        return `${item.aroma} | ${item.size} m² | ${item.qty} | $${moneyWA(importe)}`;
+      });
 
       const text =
 `Hola, quiero reservar mi Experiencia Anual BRUGAFI con Tarifa NOMAD.
 
 Nombre: ${name}
 Torre / unidad o espacio: ${unit}
-Aroma de interés: ${scent}
-Tamaño: ${sqm} m²
-Piezas Fancy: ${qtyFancy}
-Piezas Lagoon: ${qtyLagoon}
-Piezas Napa: ${qtyNapa}`;
+
+Aroma | Tamaño | Cantidad | Importe
+${rows.join("
+")}
+
+TOTAL: $${moneyWA(total)} MXN`;
 
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
       window.open(url,"_blank","noopener");
