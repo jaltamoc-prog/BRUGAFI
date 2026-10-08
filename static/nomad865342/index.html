@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0C">
+  <title>BRUGAFI × NOMAD LIVING | Tarifa NOMAD</title>
+  <meta name="description" content="Una experiencia BRUGAFI pensada para el estilo de vida de NOMAD LIVING.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --negro:#0A0A0C;
+      --dorado:#C8B273;
+      --dorado-claro:#E0C77E;
+      --marfil:#F3E6BD;
+      --crema:#F8F3EA;
+      --arena:#D9C8AE;
+      --taupe:#6E5A47;
+      --texto-claro:#F2E9D5;
+      --serif:"Cormorant Garamond", Georgia, serif;
+      --sans:"Montserrat", Arial, sans-serif;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--negro);color:var(--texto-claro);
+      font-family:var(--sans);font-weight:300;line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{display:block;max-width:100%}
+    button,input,select{font:inherit}
+    a{color:inherit}
+    section{position:relative}
+    .wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
+    .eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--marfil)}
+    h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;margin:0}
+    h1{font-size:clamp(3.2rem,12vw,7rem)}
+    h2{font-size:clamp(2.4rem,8vw,4.6rem)}
+    h3{font-size:clamp(1.8rem,6vw,2.6rem)}
+    p{margin:0}
+    .muted{color:var(--arena)}
+    .line{height:1px;background:linear-gradient(90deg,transparent,var(--dorado),transparent);opacity:.55}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+      border:1px solid var(--dorado);background:transparent;color:var(--texto-claro);
+      min-height:48px;padding:.85rem 1.15rem;border-radius:0;text-decoration:none;
+      font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+      transition:.25s ease;cursor:pointer;
+    }
+    .btn:hover,.btn:focus-visible{border-color:var(--dorado-claro);background:rgba(224,199,126,.08)}
+    .btn-solid{background:var(--dorado);color:var(--negro);border-color:var(--dorado)}
+    .btn-solid:hover,.btn-solid:focus-visible{background:var(--dorado-claro);color:var(--negro)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    /* 1. HERO */
+    .hero{
+      min-height:100svh;display:grid;place-items:end start;overflow:hidden;
+      border-bottom:1px solid rgba(200,178,115,.35);
+    }
+    .hero-media,.hero-overlay,.hero-canvas{position:absolute;inset:0}
+    .hero-media picture,.hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-media img{animation:heroZoom 18s ease-in-out infinite alternate}
+    .hero-overlay{
+      background:
+        linear-gradient(180deg,rgba(10,10,12,.22) 0%,rgba(10,10,12,.38) 35%,rgba(10,10,12,.9) 100%);
+      z-index:1
+    }
+    .hero-canvas{z-index:2;pointer-events:none;opacity:.52}
+    .hero-content{position:relative;z-index:3;padding:clamp(7rem,18vh,12rem) 0 6.6rem;max-width:780px}
+    .hero-tag{
+      display:inline-block;border:1px solid rgba(224,199,126,.55);padding:.48rem .7rem;
+      backdrop-filter:blur(7px);background:rgba(10,10,12,.22)
+    }
+    .hero h1{margin-top:1.2rem}
+    .hero-sub{margin-top:1rem;max-width:650px;font-size:clamp(1rem,3.5vw,1.25rem)}
+    .hero .btn{margin-top:1.7rem}
+    .countdown{margin-top:1rem;font-size:.76rem;color:var(--arena);letter-spacing:.04em}
+    @keyframes heroZoom{from{transform:scale(1.02)}to{transform:scale(1.09)}}
+
+    /* 2. MOMENTO */
+    .moment{padding:6rem 0;background:var(--negro)}
+    .moment-head{display:grid;gap:1rem;margin-bottom:1.6rem}
+    .tabs{display:flex;gap:.6rem}
+    .tab{
+      color:var(--arena);background:transparent;border:1px solid rgba(200,178,115,.4);
+      padding:.7rem .9rem;cursor:pointer
+    }
+    .tab.active{color:var(--negro);background:var(--dorado);border-color:var(--dorado)}
+    .moment-visual{
+      position:relative;min-height:62svh;overflow:hidden;border:1px solid rgba(200,178,115,.34);
+    }
+    .moment-visual img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+      opacity:0;transition:opacity .75s ease,transform 7s ease;transform:scale(1.02)
+    }
+    .moment-visual img.active{opacity:1;transform:scale(1.06)}
+    .moment-copy{
+      position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.4rem;
+      background:linear-gradient(180deg,transparent,rgba(10,10,12,.92))
+    }
+    .moment-copy p{max-width:430px;font-family:var(--serif);font-size:clamp(1.5rem,5vw,2.2rem)}
+
+    /* 3. AROMAS */
+    .scents{padding:6rem 0;background:var(--crema);color:var(--negro)}
+    .scents .eyebrow{color:var(--negro);opacity:.7}
+    .scents-grid{display:grid;gap:1rem;margin-top:2rem}
+    .scent-card{
+      position:relative;isolation:isolate;min-height:310px;padding:1.35rem;
+      border:1px solid rgba(110,90,71,.32);display:flex;flex-direction:column;justify-content:flex-end;
+      overflow:hidden;background:#eee8df;
+    }
+    .scent-card::before{
+      content:"";position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;opacity:.16
+    }
+    .scent-card:nth-child(1)::before{background-image:url("/static/nomad865342/img/difusor_de_aciet_70.png")}
+    .scent-card:nth-child(2)::before{background-image:url("/static/nomad865342/img/difusor_aceite_70.png")}
+    .scent-card:nth-child(3)::before{background-image:url("/static/nomad865342/img/aceite_difusor_140.png")}
+    .scent-card::after{
+      content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(248,243,234,.25),rgba(248,243,234,.97))
+    }
+    .scent-meta{font-size:.78rem;letter-spacing:.04em;margin-top:.55rem}
+    .scent-phrase{margin-top:.9rem;font-family:var(--serif);font-size:1.35rem;max-width:360px}
+    .scent-card .btn{margin-top:1rem;color:var(--negro);align-self:flex-start}
+
+    /* 4. EXPERIENCIA */
+    .experience{padding:6rem 0;background:var(--negro)}
+    .size-options{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
+    .size-btn{
+      border:1px solid rgba(200,178,115,.42);background:transparent;color:var(--texto-claro);
+      padding:1rem .4rem;cursor:pointer
+    }
+    .size-btn.active{background:var(--dorado);color:var(--negro);border-color:var(--dorado)}
+    .size-helper{min-height:52px;color:var(--arena);font-size:.9rem}
+    .package{
+      margin-top:1.6rem;border:1px solid rgba(200,178,115,.5);
+      display:grid;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.025),rgba(200,178,115,.04))
+    }
+    .package-img{min-height:420px;background:#111;display:grid;place-items:center;overflow:hidden}
+    .package-img img{width:100%;height:100%;object-fit:cover}
+    .package-info{padding:1.5rem}
+    .package-name{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--marfil)}
+    .monthly{font-family:var(--serif);font-size:clamp(2.4rem,9vw,4.7rem);line-height:1;margin:.8rem 0 .45rem}
+    .total,.daily,.included{color:var(--arena);font-size:.9rem}
+    .included{margin-top:1rem;border-top:1px solid rgba(200,178,115,.26);padding-top:1rem}
+    .tax{margin-top:.4rem;color:var(--marfil);font-size:.78rem}
+
+    /* 5. COMPLEMENTOS */
+    .extras{padding:4.2rem 0;background:var(--crema);color:var(--negro)}
+    .extras-grid{display:grid;gap:0;border-top:1px solid rgba(110,90,71,.3);margin-top:1.5rem}
+    .extra{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(110,90,71,.3)}
+    .extra small{display:block;opacity:.62;margin-top:.18rem}
+
+    /* 6. RESERVA */
+    .reserve{padding:6rem 0 8rem;background:var(--negro)}
+    .reserve-grid{display:grid;gap:2rem}
+    .form{display:grid;gap:.8rem}
+    .field{display:grid;gap:.35rem}
+    label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--arena)}
+    input,select{
+      width:100%;background:#111114;color:var(--texto-claro);border:1px solid rgba(200,178,115,.36);
+      border-radius:0;padding:.9rem 1rem;outline:none
+    }
+    input:focus,select:focus{border-color:var(--dorado-claro)}
+    .fineprint{font-size:.72rem;color:var(--arena);margin-top:.7rem}
+    .site{display:inline-block;margin-top:.9rem;color:var(--marfil);font-size:.78rem}
+    .mobile-cta{
+      position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));
+      z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+
+    @media(min-width:760px){
+      .wrap{width:min(calc(100% - 64px),var(--max))}
+      .moment-head{grid-template-columns:1fr auto;align-items:end}
+      .moment-visual{min-height:700px}
+      .scents-grid{grid-template-columns:repeat(3,1fr)}
+      .package{grid-template-columns:1.1fr .9fr}
+      .package-img{min-height:560px}
+      .package-info{padding:2.4rem;display:flex;flex-direction:column;justify-content:center}
+      .extras-grid{grid-template-columns:repeat(4,1fr);border-left:1px solid rgba(110,90,71,.3)}
+      .extra{display:block;padding:1.2rem;border-right:1px solid rgba(110,90,71,.3)}
+      .reserve-grid{grid-template-columns:.8fr 1.2fr;align-items:start}
+      .mobile-cta{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- POR CONFIRMAR: sustituir img/exclusivas.png por la imagen definitiva de la escena "Mañana" si es distinta al archivo interior temporal. -->
+  <!-- POR CONFIRMAR: validar que la asignación 45/70/140 m² corresponde exactamente a cada modelo de difusor. -->
+  <!-- POR CONFIRMAR: número de WhatsApp y nombre del asesor. -->
+
+  <header class="hero" id="inicio">
+    <div class="hero-media" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 699px)" srcset="/static/nomad865342/img/1.png">
+        <img src="/static/nomad865342/img/4.png" alt="" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero-overlay"></div>
+    <canvas class="hero-canvas" id="goldCanvas" aria-hidden="true"></canvas>
+    <div class="wrap hero-content">
+      <span class="eyebrow hero-tag">Para NOMAD LIVING y sus residentes</span>
+      <h1>El aroma de llegar.</h1>
+      <p class="hero-sub">Una experiencia BRUGAFI pensada para el estilo de vida de NOMAD LIVING.</p>
+      <a class="btn btn-solid" href="#experiencia">Descubrir mi experiencia</a>
+      <p class="countdown">Oferta vigente hasta el 15 de octubre de 2026 · <span id="countdown">Calculando…</span></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="moment reveal" id="momento">
+      <div class="wrap">
+        <div class="moment-head">
+          <div>
+            <span class="eyebrow">El momento</span>
+            <h2>Tu espacio, en cada hora.</h2>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Momentos del día">
+            <button class="tab active" data-moment="morning" role="tab" aria-selected="true">Mañana</button>
+            <button class="tab" data-moment="sunset" role="tab" aria-selected="false">Atardecer</button>
+          </div>
+        </div>
+        <div class="moment-visual">
+          <img class="active" id="morningImg" src="/static/nomad865342/img/exclusivas.png" alt="Interior cálido por la mañana" loading="lazy">
+          <img id="sunsetImg" src="/static/nomad865342/img/4.png" alt="Sala cálida al atardecer" loading="lazy">
+          <div class="moment-copy">
+            <p id="momentText">Una presencia suave que acompaña el inicio del día.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scents reveal" id="aromas">
+      <div class="wrap">
+        <span class="eyebrow">Un aroma para cada espacio</span>
+        <h2>Elige cómo quieres recibirte.</h2>
+        <div class="scents-grid">
+          <article class="scent-card">
+            <h3>Fancy</h3>
+            <p class="scent-meta"><strong>Para:</strong> recepción y área social de planta baja.</p>
+            <p class="scent-meta"><strong>Perfil:</strong> amaderado.</p>
+            <p class="scent-meta"><strong>Notas:</strong> herbal, musgo, cedro, ámbar.</p>
+            <p class="scent-phrase">Madera, musgo y ámbar: la calidez de la llegada.</p>
+            <button class="btn choose-scent" data-scent="Fancy">Elegir tamaño</button>
+          </article>
+
+          <article class="scent-card">
+            <h3>Lagoon</h3>
+            <p class="scent-meta"><strong>Para:</strong> cowork.</p>
+            <p class="scent-meta"><strong>Perfil:</strong> floral ambarado.</p>
+            <p class="scent-meta"><strong>Notas:</strong> almizcle, tonka, ámbar gris, toronja, cassis, rosa, azahar.</p>
+            <p class="scent-phrase">Flores blancas y cítricos suaves sobre un fondo de ámbar.</p>
+            <button class="btn choose-scent" data-scent="Lagoon">Elegir tamaño</button>
+          </article>
+
+          <article class="scent-card">
+            <h3>Napa</h3>
+            <p class="scent-meta"><strong>Para:</strong> gimnasio.</p>
+            <p class="scent-meta"><strong>Perfil:</strong> neutro.</p>
+            <p class="scent-meta"><strong>Notas:</strong> cuero nuevo, cedro seco, hojas de violeta, cardamomo.</p>
+            <p class="scent-phrase">Cuero, cedro y cardamomo: carácter limpio y sereno.</p>
+            <button class="btn choose-scent" data-scent="Napa">Elegir tamaño</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience reveal" id="experiencia">
+      <div class="wrap">
+        <span class="eyebrow">Tarifa NOMAD</span>
+        <h2>Tu Experiencia Anual.</h2>
+        <p class="muted" style="margin-top:.8rem">¿De cuántos m² es el espacio?</p>
+
+        <div class="size-options" aria-label="Tamaño del espacio">
+          <button class="size-btn active" data-size="45">45 m²</button>
+          <button class="size-btn" data-size="70">70 m²</button>
+          <button class="size-btn" data-size="140">140 m²</button>
+        </div>
+        <p class="size-helper" id="sizeHelper">Recámaras, estudios, oficinas privadas y espacios íntimos.</p>
+
+        <article class="package" aria-live="polite">
+          <div class="package-img">
+            <img id="packageImage" src="/static/nomad865342/img/difusor_de_aciet_70.png" alt="Difusor BRUGAFI para Experiencia Anual 45 m²" loading="lazy">
+          </div>
+          <div class="package-info">
+            <span class="package-name">Experiencia Anual · <span id="packageSize">45 m²</span></span>
+            <p class="monthly">12 meses sin intereses de $<span id="monthlyPrice">465.83</span></p>
+            <p class="total">Total: $<span id="totalPrice">5,590.00</span> MXN</p>
+            <p class="daily">$<span id="dailyPrice">15.32</span> al día</p>
+            <p class="included"><span id="includedText">1 difusor + 1 L de fragancia</span> para todo el año, entregados juntos.</p>
+            <p class="tax">Precios en MXN con IVA y facturación incluida.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="extras reveal" id="complementos">
+      <div class="wrap">
+        <span class="eyebrow">Complementos</span>
+        <h2>Detalles para completar el ambiente.</h2>
+        <div class="extras-grid">
+          <div class="extra"><span>Perfume para telas 100 ml</span><strong>$250</strong></div>
+          <div class="extra"><span>Perfume para telas 250 ml</span><strong>$450</strong></div>
+          <div class="extra"><span>Varillas 100 ml</span><strong>$298</strong></div>
+          <div class="extra"><span>Aceite 1 L <small>También a 12 MSI</small></span><strong>$3,471</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reserve reveal" id="reserva">
+      <div class="wrap reserve-grid">
+        <div>
+          <span class="eyebrow">Reserva</span>
+          <h2>Hazlo parte de tu espacio.</h2>
+          <p class="muted" style="margin-top:.9rem">Comparte tus datos y deja lista tu solicitud para WhatsApp.</p>
+          <!-- POR CONFIRMAR: reemplazar "[NOMBRE POR CONFIRMAR]" por el nombre real del asesor. -->
+          <p class="fineprint">Asesor: [NOMBRE POR CONFIRMAR]</p>
+        </div>
+
+        <form class="form" id="reserveForm">
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="unit">Torre / unidad o espacio</label>
+            <input id="unit" name="unit" required>
+          </div>
+          <div class="field">
+            <label for="scent">Aroma de interés</label>
+            <select id="scent" name="scent">
+              <option>Fancy</option>
+              <option>Lagoon</option>
+              <option>Napa</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sqm">m²</label>
+            <select id="sqm" name="sqm">
+              <option value="45">45 m²</option>
+              <option value="70">70 m²</option>
+              <option value="140">140 m²</option>
+            </select>
+          </div>
+
+          <button class="btn btn-solid" type="submit">Reservar mi Experiencia</button>
+          <p class="fineprint">12 meses sin intereses en compras mayores a $3,000 MXN con tarjeta de crédito mexicana o corporativa. Precios en MXN con IVA y facturación incluida. Vigencia: 15 de octubre de 2026.</p>
+          <a class="site" href="https://brugafi.homes" target="_blank" rel="noopener">brugafi.homes</a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <a class="btn btn-solid mobile-cta" href="#reserva">Reservar mi Experiencia</a>
+
+  <script>
+    // =============================
+    // DATOS EDITABLES
+    // =============================
+    // POR CONFIRMAR: reemplazar por el número real, solo dígitos con código de país. Ejemplo México: 521XXXXXXXXXX
+    const WHATSAPP_NUMBER = "[NÚMERO POR CONFIRMAR]";
+
+    const packages = {
+      45: {
+        total: 5590,
+        liters: 1,
+        image: "/static/nomad865342/img/difusor_de_aciet_70.png",
+        helper: "Recámaras, estudios, oficinas privadas y espacios íntimos."
+      },
+      70: {
+        total: 9513,
+        liters: 2,
+        image: "/static/nomad865342/img/difusor_aceite_70.png",
+        helper: "Áreas sociales, salas, recepciones pequeñas y espacios de convivencia."
+      },
+      140: {
+        total: 13971,
+        liters: 3,
+        image: "/static/nomad865342/img/aceite_difusor_140.png",
+        helper: "Salas grandes y zonas abiertas de atención."
+      }
+    };
+
+    // =============================
+    // CONTADOR DE VIGENCIA
+    // =============================
+    const deadline = new Date("2026-10-15T23:59:00-06:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown(){
+      const diff = deadline - Date.now();
+      if(diff <= 0){
+        countdownEl.textContent = "Oferta finalizada. Escríbenos.";
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      countdownEl.textContent = `${days} días · ${hours} horas restantes`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // =============================
+    // PESTAÑAS MAÑANA / ATARDECER
+    // =============================
+    const tabs = [...document.querySelectorAll(".tab")];
+    const morningImg = document.getElementById("morningImg");
+    const sunsetImg = document.getElementById("sunsetImg");
+    const momentText = document.getElementById("momentText");
+
+    tabs.forEach(tab => tab.addEventListener("click", () => {
+      tabs.forEach(t => {
+        t.classList.toggle("active", t === tab);
+        t.setAttribute("aria-selected", t === tab ? "true" : "false");
+      });
+      const morning = tab.dataset.moment === "morning";
+      morningImg.classList.toggle("active", morning);
+      sunsetImg.classList.toggle("active", !morning);
+      momentText.textContent = morning
+        ? "Una presencia suave que acompaña el inicio del día."
+        : "Una calidez envolvente para recibir la tarde.";
+    }));
+
+    // =============================
+    // SELECTOR DE PAQUETE + PRECIO ANIMADO
+    // =============================
+    const sizeBtns = [...document.querySelectorAll(".size-btn")];
+    const packageImage = document.getElementById("packageImage");
+    const packageSize = document.getElementById("packageSize");
+    const monthlyPrice = document.getElementById("monthlyPrice");
+    const totalPrice = document.getElementById("totalPrice");
+    const dailyPrice = document.getElementById("dailyPrice");
+    const includedText = document.getElementById("includedText");
+    const sizeHelper = document.getElementById("sizeHelper");
+    const sqmSelect = document.getElementById("sqm");
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const money = n => n.toLocaleString("es-MX",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+    function animateNumber(el, from, to, duration=420){
+      if(reduceMotion){ el.textContent = money(to); return; }
+      const start = performance.now();
+      function frame(now){
+        const p = Math.min(1,(now-start)/duration);
+        const eased = 1 - Math.pow(1-p,3);
+        el.textContent = money(from + (to-from)*eased);
+        if(p<1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function selectPackage(size){
+      const p = packages[size];
+      const oldMonthly = Number(monthlyPrice.textContent.replace(/,/g,"")) || 0;
+      const oldTotal = Number(totalPrice.textContent.replace(/,/g,"")) || 0;
+      const oldDaily = Number(dailyPrice.textContent.replace(/,/g,"")) || 0;
+      const monthly = p.total / 12;
+      const daily = p.total / 365;
+
+      sizeBtns.forEach(b => b.classList.toggle("active", Number(b.dataset.size) === Number(size)));
+      packageImage.src = p.image;
+      packageImage.alt = `Difusor BRUGAFI para Experiencia Anual ${size} m²`;
+      packageSize.textContent = `${size} m²`;
+      sizeHelper.textContent = p.helper;
+      includedText.textContent = `1 difusor + ${p.liters} L de fragancia`;
+      sqmSelect.value = String(size);
+
+      animateNumber(monthlyPrice, oldMonthly, monthly);
+      animateNumber(totalPrice, oldTotal, p.total);
+      animateNumber(dailyPrice, oldDaily, daily);
+    }
+
+    sizeBtns.forEach(btn => btn.addEventListener("click", () => selectPackage(btn.dataset.size)));
+    sqmSelect.addEventListener("change", () => selectPackage(sqmSelect.value));
+
+    // =============================
+    // AROMA PRESELECCIONADO
+    // =============================
+    const scentSelect = document.getElementById("scent");
+    document.querySelectorAll(".choose-scent").forEach(btn => {
+      btn.addEventListener("click", () => {
+        scentSelect.value = btn.dataset.scent;
+        document.getElementById("experiencia").scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
+      });
+    });
+
+    // =============================
+    // FORMULARIO A WHATSAPP
+    // =============================
+    document.getElementById("reserveForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const unit = document.getElementById("unit").value.trim();
+      const scent = scentSelect.value;
+      const sqm = sqmSelect.value;
+
+      if(WHATSAPP_NUMBER.includes("POR CONFIRMAR")){
+        alert("Falta configurar el número de WhatsApp en index.html.");
+        return;
+      }
+
+      const text =
+`Hola, quiero reservar mi Experiencia Anual BRUGAFI con Tarifa NOMAD.
+
+Nombre: ${name}
+Torre / unidad o espacio: ${unit}
+Aroma de interés: ${scent}
+Tamaño: ${sqm} m²`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url,"_blank","noopener");
+    });
+
+    // =============================
+    // APARICIÓN AL SCROLL
+    // =============================
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // =============================
+    // PARTÍCULAS DORADAS MUY TENUES
+    // =============================
+    (() => {
+      if(reduceMotion) return;
+      const canvas = document.getElementById("goldCanvas");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+      const DPR = Math.min(devicePixelRatio || 1, 2);
+
+      function resize(){
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * DPR;
+        canvas.height = rect.height * DPR;
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+        particles = Array.from({length:22}, () => ({
+          x:Math.random()*rect.width,
+          y:Math.random()*rect.height,
+          r:.45+Math.random()*1.15,
+          a:.05+Math.random()*.12,
+          v:.05+Math.random()*.12
+        }));
+      }
+
+      function draw(){
+        const rect = canvas.getBoundingClientRect();
+        ctx.clearRect(0,0,rect.width,rect.height);
+        for(const p of particles){
+          p.y -= p.v;
+          if(p.y < -8){p.y=rect.height+8;p.x=Math.random()*rect.width}
+          ctx.beginPath();
+          ctx.fillStyle=`rgba(224,199,126,${p.a})`;
+          ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      resize();
+      addEventListener("resize", resize, {passive:true});
+      draw();
+    })();
+  </script>
+</body>
+</html>
