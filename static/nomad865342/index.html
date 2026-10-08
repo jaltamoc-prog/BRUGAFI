@@ -439,6 +439,37 @@
       }
     }
 
+  
+    /* v1.12 — cuadro de cotización fijo al hacer scroll */
+    .hero-tag{
+      position:fixed!important;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:9999!important;
+      width:min(calc(100% - 32px), 860px)!important;
+      margin:0!important;
+      background:rgba(10,10,12,.72)!important;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 12px 30px rgba(0,0,0,.24);
+    }
+
+    /* deja espacio visual en el hero para que el cuadro fijo no tape el contenido */
+    .hero-content{
+      padding-top:clamp(11rem,24vh,15rem)!important;
+    }
+
+    @media(max-width:759px){
+      .hero-tag{
+        top:10px;
+        width:calc(100% - 20px)!important;
+      }
+      .hero-content{
+        padding-top:10.5rem!important;
+      }
+    }
+
   </style>
 </head>
 <body>
