@@ -369,11 +369,15 @@ def legal(): return render_template_string(LEGAL_PAGE,title='Legal',content=LEGA
 @app.route('/politicas-envio')
 def shipping(): return render_template_string(LEGAL_PAGE,title='PolÃ­ticas de envÃ­o',content=SHIPPING)
 
-@app.route('/nomad865342')
-def nomad865342():
-    return render_template('nomad865342.html')
 
 @app.route('/health')
 def health(): return 'ok',200
 if __name__=='__main__': app.run(debug=True)
+
+# NOMAD 865342 - RUTA PRODUCTIVA PERMANENTE
+@app.route('/nomad865342', strict_slashes=False)
+def nomad865342():
+    return render_template('nomad865342.html')
+
+NOMAD_DEPLOY_VERSION = '2026-10-09-v2'
 
