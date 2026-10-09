@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, abort, request
+from flask import Flask, render_template, render_template_string, abort, request
 from datetime import datetime
 
 app = Flask(__name__)
@@ -375,6 +375,43 @@ def terms(): return render_template_string(TERMS_PAGE,content=TERMS_HTML)
 def legal(): return render_template_string(LEGAL_PAGE,title='Legal',content=LEGAL)
 @app.route('/politicas-envio')
 def shipping(): return render_template_string(LEGAL_PAGE,title='Políticas de envío',content=SHIPPING)
+@app.route('/nomad865342', strict_slashes=False)
+def nomad865342():
+    return render_template('nomad865342.html')
+
 @app.route('/health')
 def health(): return 'ok',200
+
+# ============================================================
+# VALIDACIÓN PRE-PUSH DE RUTAS CRÍTICAS
+# Conservar este bloque en futuras versiones de BRUGAFI.
+# Si una ruta o template crítico falla, el push debe detenerse.
+# ============================================================
+REQUIRED_ROUTE_CHECKS = [
+    ("/", 200),
+    ("/nomad865342", 200),
+    ("/nomad865342/", 200),
+    ("/health", 200),
+]
+
+def validate_required_routes():
+    client = app.test_client()
+    failures = []
+
+    for path, expected_status in REQUIRED_ROUTE_CHECKS:
+        response = client.get(path)
+        if response.status_code != expected_status:
+            failures.append(
+                f"{path}: esperado {expected_status}, recibido {response.status_code}"
+            )
+
+    if failures:
+        raise RuntimeError(
+            "VALIDACIÓN FALLIDA. NO HACER PUSH:\n" + "\n".join(failures)
+        )
+
+    print("VALIDACIÓN OK: rutas críticas y templates responden correctamente.")
+    return True
+
+
 if __name__=='__main__': app.run(debug=True)
