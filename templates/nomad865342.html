@@ -148,6 +148,20 @@
     .included{margin-top:1rem;border-top:1px solid rgba(200,178,115,.26);padding-top:1rem}
     .tax{margin-top:.4rem;color:var(--marfil);font-size:.78rem}
 
+    .experience-notes{
+      display:grid;gap:1.2rem;margin-top:1.35rem;padding:1.15rem 0;
+      border-top:1px solid rgba(200,178,115,.24);
+      border-bottom:1px solid rgba(200,178,115,.16)
+    }
+    .experience-note h3{
+      margin:0 0 .55rem;font-family:var(--serif);font-size:1.12rem;
+      font-weight:500;color:var(--marfil)
+    }
+    .experience-note ul{margin:0;padding-left:1.05rem}
+    .experience-note li{
+      margin:.35rem 0;color:var(--arena);font-size:.78rem;line-height:1.55
+    }
+
     /* 5. COMPLEMENTOS */
     .extras{padding:4.2rem 0;background:var(--crema);color:var(--negro)}
     .extras-grid{display:grid;gap:0;border-top:1px solid rgba(110,90,71,.3);margin-top:1.5rem}
@@ -180,6 +194,7 @@
       .package{grid-template-columns:1.1fr .9fr}
       .package-img{min-height:560px}
       .package-info{padding:2.4rem;display:flex;flex-direction:column;justify-content:center}
+      .experience-notes{grid-template-columns:1fr 1fr;gap:2rem}
       .extras-grid{grid-template-columns:repeat(4,1fr);border-left:1px solid rgba(110,90,71,.3)}
       .extra{display:block;padding:1.2rem;border-right:1px solid rgba(110,90,71,.3)}
       .reserve-grid{grid-template-columns:.8fr 1.2fr;align-items:start}
@@ -658,6 +673,26 @@
             <p class="tax">Precios en MXN con IVA y facturación incluida.</p>
           </div>
         </article>
+
+        <div class="experience-notes" aria-label="Información de la experiencia">
+          <div class="experience-note">
+            <h3>Tu experiencia incluye</h3>
+            <ul>
+              <li>Difusor BRUGAFI seleccionado</li>
+              <li>Fragancia incluida según cobertura recomendada</li>
+              <li>Configuración y programación desde celular</li>
+            </ul>
+          </div>
+          <div class="experience-note">
+            <h3>Condiciones</h3>
+            <ul>
+              <li>Cotización vigente hasta el 15 de octubre de 2026</li>
+              <li>Sujeta a disponibilidad</li>
+              <li>Entrega estimada de 2 a 3 días después de confirmar pago</li>
+              <li>Garantía limitada de 30 días</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -736,7 +771,7 @@
           <button class="btn btn-solid" type="submit">Reservar mi Experiencia</button>
           <p class="fineprint">12 meses sin intereses en compras mayores a $3,000 MXN con tarjeta de crédito mexicana o corporativa. Precios en MXN con IVA y facturación incluida. Vigencia: 15 de octubre de 2026. Para factura, manda tus datos fiscales por el mismo canal. Gastos de envío: $189 MXN al área metropolitana de la CDMX.</p>
           <a class="site" href="https://brugafi.homes" target="_blank" rel="noopener">brugafi.homes</a>
-          <p class="fineprint" style="margin-top:14px">Gracias por ser parte de la comunidad BRUGAFI.</p>
+          <p class="fineprint" style="margin-top:14px">Estamos encantados de que formes parte de la comunidad BRUGAFI, ¡GRACIAS!</p>
         </form>
       </div>
     </section>
